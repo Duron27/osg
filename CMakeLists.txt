@@ -735,7 +735,7 @@ OPTION(BUILD_OSG_PLUGINS "Build OSG Plugins - Disable for compile testing exampl
 mark_as_advanced(BUILD_OSG_PLUGINS)
 ################################################################################
 # 3rd Party Dependency Stuff
-OPTION(OSG_FIND_3RD_PARTY_DEPS "Enable to search for Android or Windows dependencies in ./3rdparty" ON)
+OPTION(OSG_FIND_3RD_PARTY_DEPS "Enable to search for Android or Windows dependencies in ./3rdparty" OFF)
 
 IF(WIN32 AND NOT ANDROID AND OSG_FIND_3RD_PARTY_DEPS)
     INCLUDE(Find3rdPartyDependencies)

@@ -68,6 +68,8 @@ public:
 
         virtual void apply(State& state) const;
 
+        static void GL4ES_SavePSA() { glHint(0xA10F, 0xA10F); };
+
 protected:
 
 

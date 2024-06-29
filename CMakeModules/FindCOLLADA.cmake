@@ -19,7 +19,7 @@ SET( COLLADA_ENV_VAR_AVAILABLE $ENV{COLLADA_DIR} )
 IF ( COLLADA_ENV_VAR_AVAILABLE )
     SET(COLLADA_DOM_ROOT "$ENV{COLLADA_DIR}/dom" CACHE PATH "Location of Collada DOM directory" FORCE)
 ELSE ()
-    SET(COLLADA_DOM_ROOT "${ACTUAL_3DPARTY_DIR}/include/1.4/dom" CACHE PATH "Location of Collada DOM directory" FORCE)
+    SET(COLLADA_DOM_ROOT "${ACTUAL_3DPARTY_DIR}/include/collada-dom2.5/1.4/dom" CACHE PATH "Location of Collada DOM directory" FORCE)
 ENDIF()
 
 
@@ -74,6 +74,7 @@ FIND_PATH(COLLADA_INCLUDE_DIR dae.h
     /opt/include
     /usr/freeware/include
     ${ACTUAL_3DPARTY_DIR}/include
+    ${ACTUAL_3DPARTY_DIR}/include/collada-dom2.5/
     PATH_SUFFIXES
     colladadom
     collada-dom

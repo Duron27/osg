@@ -2497,9 +2497,13 @@ void Texture::applyTexImage2D_load(State& state, GLenum target, const Image* ima
             GLint blockSize, size;
             getCompressedSize(_internalFormat, inwidth, inheight, 1, blockSize,size);
 
+            int size2 = size;
+            if (useHardwareMipMapGeneration)
+                size2 *= -1;
+
             extensions->glCompressedTexImage2D(target, 0, _internalFormat,
                 inwidth, inheight,0,
-                size,
+                size2,
                 dataPtr);
         }
 
@@ -2618,6 +2622,9 @@ void Texture::applyTexImage2D_load(State& state, GLenum target, const Image* ima
                             height = 1;
 
                         getCompressedSize(_internalFormat, width, height, 1, blockSize,size);
+
+                        if (k == numMipmapLevels - 1)
+                            size *= -1;
 
                         extensions->glCompressedTexImage2D(target, k, _internalFormat,
                                                            width, height, _borderWidth,
